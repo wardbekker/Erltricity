@@ -4,6 +4,6 @@
 %% @end
 -module(records).
 -compile({parse_transform, exprecs}).
--include("mindwave.hrl").
+-include("erltricity.hrl").
 -export_records([blink, poorsignal, esense, event]).
 

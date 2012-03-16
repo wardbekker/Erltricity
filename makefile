@@ -6,11 +6,11 @@ build-plt:
 	-pa deps/mysql/ebin \
 	-pa deps/erlydtl/ebin \
 	-pa deps/parse_trans/ebin \
-	--output_plt mindwave_dialyzer.plt \
+	--output_plt erltricity_dialyzer.plt \
 	--apps kernel crypto stdlib sasl inets tools xmerl erts
 
 dialyzer: compile
-	dialyzer --plt mindwave_dialyzer.plt \
+	dialyzer --plt erltricity_dialyzer.plt \
 		--src src \
 		-pa deps/webmachine/ebin \
 		-pa deps/mysql/ebin \

@@ -2,7 +2,7 @@
 %% @doc
 %% Mindwave OTP app
 %% @end
--module(mindwave_app).
+-module(erltricity_app).
 -behaviour(application).
 
 %% ------------------------------------------------------------------
@@ -20,7 +20,7 @@ start(_StartType, _StartArgs) ->
     application:start(inets),
     application:start(mochiweb),
     application:start(webmachine),
-    mindwave_sup:start_link().
+    erltricity_sup:start_link().
 
 stop(_State) ->
     ok.

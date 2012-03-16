@@ -15,7 +15,7 @@
 %% ------------------------------------------------------------------
 
 -include_lib("webmachine/include/webmachine.hrl").
--include("mindwave.hrl").
+-include("erltricity.hrl").
 
 %% ------------------------------------------------------------------
 %% API Function Definitions

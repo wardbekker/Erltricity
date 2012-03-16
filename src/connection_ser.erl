@@ -5,7 +5,7 @@
 %% @end
 -module(connection_ser).
 -behaviour(gen_server).
--include("mindwave.hrl").
+-include("erltricity.hrl").
 
 -define(SERVER, ?MODULE).
 -define(CONNECTOR_HOSTNAME, "127.0.0.1").

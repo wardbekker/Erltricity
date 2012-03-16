@@ -2,4 +2,5 @@
 *.beam
 config/database.config
 .DS_Store
-
+deps
+ebin

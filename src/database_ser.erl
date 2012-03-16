@@ -4,7 +4,7 @@
 %% @end
 -module(database_ser).
 -behaviour(gen_server).
--include("mindwave.hrl").
+-include("erltricity.hrl").
 
 -define(SERVER, ?MODULE).
 -define(POOL_ID, 1).
@@ -60,7 +60,7 @@ init(Config) ->
     Host = proplists:get_value(mysql_host, Config, "localhost"),
     User = proplists:get_value(mysql_user, Config, "root"),
     Password = proplists:get_value(mysql_password, Config, ""),
-    Database = proplists:get_value(mysql_database, Config, "mindwave"),
+    Database = proplists:get_value(mysql_database, Config, "erltricity"),
 
     % open first connection
     mysql:start_link(

@@ -6,7 +6,7 @@ Developer: Ward Bekker <ward@equanimity.nl>
 Description
 ----------
 
-An Erlang Client library for the [ThinkGear Socket Protocol](http://developer.neurosky.com/docs/lib/exe/fetch.php?media=app_notes:thinkgear_socket_protocol.pdf) from [NeuroSky](http://neurosky.com/). 
+An Erlang/OTP Client Application for the [ThinkGear Socket Protocol](http://developer.neurosky.com/docs/lib/exe/fetch.php?media=app_notes:thinkgear_socket_protocol.pdf) from [NeuroSky](http://neurosky.com/). 
 
 ###You'll need one of [these](http://store.neurosky.com/products/mindwave-1):
 
@@ -21,7 +21,7 @@ An Erlang Client library for the [ThinkGear Socket Protocol](http://developer.ne
 
 ###Usage
 
-Create a new MySQL database eg. `mindwave` and run the table creation statements from `table.sql`
+Create a new MySQL database eg. `erltricity` and run the table creation statements from `table.sql`
 
 Copy the database.config example file and adapt it to your MySQL Server needs:
 
@@ -35,7 +35,7 @@ Now is a good time to turn on your Mindwave headset.
 
 Inside Erlang shell:
 
-`application:start(mindwave).`
+`application:start(erltricity).`
 
 And point your browser to [http://localhost:8000/chart](http://localhost:8000/chart) to see the recorded EGG signals. Manual refreshing is required in this version.
 
