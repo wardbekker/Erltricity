@@ -1,4 +1,4 @@
-Erlang Thinkgear Connector Client 
+Erltricity: An Erlang/OTP Thinkgear Connector Client 
 ==========
 
 Developer: Ward Bekker <ward@equanimity.nl>
@@ -18,6 +18,10 @@ An Erlang/OTP Client Application for the [ThinkGear Socket Protocol](http://deve
 * MySQL Server
 * Thinkgear Connector (comes with installation media)
 * An active internet connection as Google Graph API is used for the charting.
+
+###Current development status
+
+Code should be considered a proof of concept.
 
 ###Usage
 
