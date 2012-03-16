@@ -41,7 +41,7 @@ Inside Erlang shell:
 
 `application:start(erltricity).`
 
-And point your browser to [http://localhost:8000/chart](http://localhost:8000/chart) to see the recorded EGG signals. Manual refreshing is required in this version.
+And point your browser to [http://localhost:8000/chart](http://localhost:8000/chart) to see the recorded EEG signals. Manual refreshing is required in this version.
 
 ###Example Chart
 
