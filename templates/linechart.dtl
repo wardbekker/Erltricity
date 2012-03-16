@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawCharts);
+      function drawCharts() {
+        
+        {% for chart in charts %}
+
+        var data = new google.visualization.DataTable();
+
+        {% for type, label in chart.columns %}
+            data.addColumn('{{ type }}', '{{ label }}');
+        {% endfor %}
+
+        data.addRows([
+          {% for label, values in chart.rows %}
+            [{{ label }}, {{ values }}],
+          {% endfor %}
+        ]);
+
+        var options = {
+          width: {{ chart.width }}, height: {{ chart.height }} ,
+          title: '{{ chart.title }}',
+          hAxis: { viewWindowMode: 'explicit', viewWindow: { min: {{chart.hAxis_minValue}}, max: {{chart.hAxis_maxValue}}} },
+          interpolateNulls: true
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div{{forloop.counter0 }}'));
+        chart.draw(data, options);
+
+        {% endfor %}        
+      }
+    </script>
+  </head>
+  <body>
+   {% for chart in charts %}
+    <div id="chart_div{{forloop.counter0 }}"></div>
+   {% endfor %}
+  </body>
+</html>

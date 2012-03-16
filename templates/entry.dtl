@@ -1,0 +1,14 @@
+<html>
+  <head>
+      <title>Entry</title>
+  </head>
+  <body>	
+      <form method="POST" > 
+	  <input type="submit" name="event" value="distracted" />
+	  <input type="submit" name="event" value="day_dreaming" />
+	  <input type="submit" name="event" value="worrying" />
+	  <input type="submit" name="event" value="concentrated" />
+	  <input type="submit" name="event" value="stressed" />
+      </form>
+  </body>
+</html>

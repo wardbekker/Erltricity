@@ -1,0 +1,11 @@
+[
+ {mysql_host, "localhost"},
+ {mysql_user, "user"},
+ {mysql_password, "password"},
+ {mysql_db, "mindwave"}
+].
+
+%%% Local variables:
+%%% mode: erlang
+%%% End:
+

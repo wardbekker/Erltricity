@@ -1,0 +1,12 @@
+{application, mindwave,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { mindwave_app, []}},
+  {env, []}
+ ]}.

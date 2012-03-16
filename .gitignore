@@ -1,0 +1,5 @@
+*.plt
+*.beam
+config/database.config
+.DS_Store
+
