@@ -23,7 +23,7 @@
 init([]) -> {ok, undefined}.
 
 to_html(ReqData, State) ->
-    EndTimestamp = utils:maxESenseTimestamp(),
+    EndTimestamp = db_queries:maxESenseTimestamp(),
     StartTimestamp = EndTimestamp - utils:timestamp({0,1000,0}),
     Charts = [
               "\"meditation\"", "\"theta\"", "\"highBeta\"",
@@ -58,7 +58,7 @@ blinkData(StartTimestamp, EndTimestamp) ->
                       lists:nth(2, R)
                      }
                  end,
-                 utils:blink(StartTimestamp, EndTimestamp)
+                 db_queries:blink(StartTimestamp, EndTimestamp)
                 ),
     Data = [
             {"hAxis_minValue", StartTimestamp},
@@ -80,7 +80,7 @@ poorSignalData(StartTimestamp, EndTimestamp) ->
                       lists:nth(2, R)
                      }
                  end,
-                 utils:poorSignal(StartTimestamp, EndTimestamp)
+                 db_queries:poorSignal(StartTimestamp, EndTimestamp)
                 ),
     Data = [
             {"hAxis_minValue", StartTimestamp},
@@ -95,7 +95,7 @@ poorSignalData(StartTimestamp, EndTimestamp) ->
 
 -spec eSenseData(integer(), integer()) -> list().
 eSenseData(StartTimestamp, EndTimestamp) ->
-    Res = utils:eSenses(StartTimestamp, EndTimestamp),
+    Res = db_queries:eSenses(StartTimestamp, EndTimestamp),
     DataColumns1 = re:split(lists:nth(2,lists:nth(1, Res)), ","),
     DataColumns2 = [
                     {"number", "Timestamp"}] ++
@@ -121,7 +121,7 @@ eSenseData(StartTimestamp, EndTimestamp) ->
 
 -spec eSenseData(iolist(), integer(), integer()) -> list().
 eSenseData(Esense, StartTimestamp, EndTimestamp) ->
-    Res = utils:eSense(Esense, StartTimestamp, EndTimestamp),
+    Res = db_queries:eSense(Esense, StartTimestamp, EndTimestamp),
     DataColumns1 = re:split(lists:nth(2,lists:nth(1, Res)), ","),
     DataColumns2 = [{"number", "Timestamp"}] ++ lists:map(fun(H) -> { "number", H } end, DataColumns1),
     DataRows = lists:map(
