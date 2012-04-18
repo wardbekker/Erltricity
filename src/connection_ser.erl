@@ -8,8 +8,8 @@
 -include("erltricity.hrl").
 
 -define(SERVER, ?MODULE).
--define(CONNECTOR_HOSTNAME, "127.0.0.1").
--define(CONNECTOR_PORT, 13854).
+-define(DEF_CONNECTOR_HOSTNAME, "127.0.0.1").
+-define(DEF_CONNECTOR_PORT, 13854).
 -define(
    CONNECTOR_INIT_MSG,
    "{\"enableRawOutput\": false, \"format\": \"Json\"}\n"
@@ -46,8 +46,12 @@ start_link(Config) ->
 
 -spec init([]) -> {'ok',#state{socket::port()}}.
 init(Config) ->
-    Hostname = proplists:get_value(connector_hostname, Config, "127.0.0.1"),
-    Port = proplists:get_value(connector_port, Config, 13854),
+    Hostname = proplists:get_value(
+                 connector_hostname, Config, DEF_CONNECTOR_HOSTNAME
+                ),
+    Port = proplists:get_value(
+             connector_port, Config, DEF_CONNECTOR_PORT
+            ),
     {ok, Socket} = gen_tcp:connect(
                      Hostname, Port, [binary, {packet, 0}]
                     ),
