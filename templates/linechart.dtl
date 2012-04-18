@@ -3,6 +3,7 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
+      google.load("jquery", "1.4.2");
       google.setOnLoadCallback(drawCharts);
       function drawCharts() {
         
@@ -29,6 +30,20 @@
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div{{forloop.counter0 }}'));
         chart.draw(data, options);
+
+        var maxValue = {{ chart.hAxis_maxValue }};
+
+        setInterval(function() {
+            $.getJSON('/chart?esense={{ chart.chartDataType }}&maxValue=' + maxValue, function(rows) {
+                    for(var index in rows) {
+                        data.addRow([parseInt(index), rows[index]]);
+                        maxValue = [parseInt(index)];
+                    }
+                    chart.draw(data);
+                    }
+            )
+        }, 
+        200);
 
         {% endfor %}        
       }

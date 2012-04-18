@@ -118,11 +118,11 @@ encode(Param) when erlang:is_list(Param) ->
             mysql:encode(Param);
         false ->
             string:join(
-              lists:map(fun(P) -> encode(printable(P)) end, Param), ", "
+              lists:map(fun(P) -> encode(P) end, Param), ", "
              )
     end;
 encode(Param) ->
-    mysql:encode(Param).
+    mysql:encode(printable(Param)).
 
 -spec seperator(any()) -> iolist().
 seperator(Param) when erlang:is_list(Param) ->
