@@ -44,10 +44,10 @@ to_html(ReqData, State) ->
     EndTimestamp = db_queries:maxESenseTimestamp(),
     StartTimestamp = EndTimestamp - utils:timestamp({0,1000,0}),
     Charts = [
-              "meditation", "theta", "highBeta",
-              "highGamma", "attention", "lowBeta",
-              "delta", "highAlpha", "lowGamma",
-              "lowAlpha", "combined", "poorsignal", "blink"
+              "attention", "meditation", "highAlpha", "highBeta", "blink", "poorsignal", "combined"
+              %% "highGamma", "attention", "lowBeta",
+              %% "delta", "highAlpha", "lowGamma",
+              %% "lowAlpha", "combined", "poorsignal", "blink"
              ],
     ChartsData = lists:map(
                    fun(C) -> chartData(C, StartTimestamp, EndTimestamp) end,
@@ -91,7 +91,7 @@ blinkData(StartTimestamp, EndTimestamp) ->
             {"height", "200"},
             {"title", "Blink"},
             {"chartDataType", "blink"},
-            {"columns", [{ "number", "Timestamp"}, { "number", "strength" }]},
+            {"columns", [{ "number", "Timestamp"}, { "number", "blink" }]},
             {"rows", DataRows }
            ],
     Data.

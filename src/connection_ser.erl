@@ -47,10 +47,10 @@ start_link(Config) ->
 -spec init([]) -> {'ok',#state{socket::port()}}.
 init(Config) ->
     Hostname = proplists:get_value(
-                 connector_hostname, Config, DEF_CONNECTOR_HOSTNAME
+                 connector_hostname, Config, ?DEF_CONNECTOR_HOSTNAME
                 ),
     Port = proplists:get_value(
-             connector_port, Config, DEF_CONNECTOR_PORT
+             connector_port, Config, ?DEF_CONNECTOR_PORT
             ),
     {ok, Socket} = gen_tcp:connect(
                      Hostname, Port, [binary, {packet, 0}]
